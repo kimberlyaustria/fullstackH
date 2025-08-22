@@ -21,7 +21,12 @@ const updateLearningPath = async (teacherId: number, learningPath: string): Prom
         // Update the learning path of the teacher with the given ID.
         // Return the updated teacher including its user information.
         // Return a domain object.
-        return null;
+        const teacherPrisma = await database.teacher.update({
+            where: { id: teacherId },
+            data: { learningPath },
+            include: { user: true },
+        });
+        return Teacher.from(teacherPrisma);
     } catch (error) {
         throw new Error('Database error. See server log for details.');
     }

@@ -4,7 +4,8 @@ import TeacherService from "@services/TeacherService";
 import { Teacher } from "@types";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
+import useInterval from "use-interval";
 
 const Teachers: React.FC = () => {
   const fetcher = async () => {
