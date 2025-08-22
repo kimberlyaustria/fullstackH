@@ -3,6 +3,12 @@ const getAllTeachers = () => {
     Call the back-end API on the route /teachers to get all teachers.
     You will need to implement that route in the back-end.
   */
+  return fetch(process.env.NEXT_PUBLIC_API_URL + "/teachers", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 };
 
 const updateLearningPath = (teacherId: number, learningPath: string) => {
