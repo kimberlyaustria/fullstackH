@@ -5,10 +5,9 @@ import { Teacher } from "@types";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import useSWR, { mutate } from "swr";
-import useInterval from "use-interval";
 
 const Teachers: React.FC = () => {
-  const fetcher = async () => {
+  const fetcher = async (key: string) => {
     /* Use the TeacherService to fetch all teachers */
     const response = await TeacherService.getAllTeachers();
     const teachers = await response.json();
