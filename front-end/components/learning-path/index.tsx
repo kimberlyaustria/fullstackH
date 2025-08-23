@@ -9,11 +9,13 @@ type Props = {
 const LearningPath: React.FC<Props> = ({ teacherId, learningPath }: Props) => {
   const [newLearningPath, setNewLearningPath] = useState(learningPath);
 
-  const handleLearningPathChange = (event: { target: { value: string } }) => {
+  const handleLearningPathChange = async (event: {
+    target: { value: string };
+  }) => {
     {
       /* Use TeacherService to update the learning path for the teacher */
       setNewLearningPath(event.target.value);
-      return TeacherService.updateLearningPath(teacherId, event.target.value);
+      await TeacherService.updateLearningPath(teacherId, event.target.value);
     }
   };
 

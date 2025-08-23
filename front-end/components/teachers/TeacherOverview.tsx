@@ -26,30 +26,23 @@ const TeacherOverview: React.FC<Props> = ({ teachers }: Props) => {
           <tbody>
             {/* Render a row for each teacher containing name and learning path */}
             {/* For question 1.c, you can use the LearningPath component. */}
-            {loggedInUser && loggedInUser.role === "admin"
-              ? teachers &&
-                teachers.map((teacher, index) => (
-                  <tr key={index}>
-                    <td>
-                      {teacher.user.lastName} {teacher.user.firstName}
-                    </td>
-                    <td>
-                      <LearningPath
-                        teacherId={teacher.id}
-                        learningPath={teacher.learningPath}
-                      />
-                    </td>
-                  </tr>
-                ))
-              : teachers &&
-                teachers.map((teacher, index) => (
-                  <tr key={index}>
-                    <td>
-                      {teacher.user.lastName} {teacher.user.firstName}
-                    </td>
-                    <td>{teacher.learningPath}</td>
-                  </tr>
-                ))}
+            {teachers.map((teacher) => (
+              <tr key={teacher.id}>
+                <td>
+                  {teacher.user.lastName} {teacher.user.firstName}
+                </td>
+                <td>
+                  {loggedInUser && loggedInUser.role === "admin" ? (
+                    <LearningPath
+                      teacherId={teacher.id}
+                      learningPath={teacher.learningPath}
+                    />
+                  ) : (
+                    teacher.learningPath
+                  )}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>
