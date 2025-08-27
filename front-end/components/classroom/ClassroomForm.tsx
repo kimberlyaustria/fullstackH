@@ -9,11 +9,6 @@ const ClassroomForm: React.FC = () => {
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState(null);
   const [statusMessages, setStatusMessages] = useState<StatusMessage[]>([]);
-  const [loggedInUser, setLoggedInUser] = useState<User>(null);
-
-  useEffect(() => {
-    setLoggedInUser(JSON.parse(sessionStorage.getItem("loggedInUser")));
-  }, []);
 
   const { t } = useTranslation();
 
