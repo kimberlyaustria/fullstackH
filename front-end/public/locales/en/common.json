@@ -36,5 +36,8 @@
     "success": "Added classroom with name {{name}} and ID {{id}}",
     "error": "Classroom already exists"
   },
-  "unauthorized.message": "You are not authorized to view this page."
+  "unauthorized": {
+    "title": "Unauthorized",
+    "message": "You are not authorized to view this page."
+  }
 }

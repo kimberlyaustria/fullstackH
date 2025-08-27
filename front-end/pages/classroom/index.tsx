@@ -18,7 +18,7 @@ const Classroom: React.FC = () => {
     return (
       <>
         <Head>
-          <title>{t("common:not-authorized")}</title>
+          <title>{t("unauthorized.title")}</title>
         </Head>
         <Header />
         <main className="p-6 min-h-screen flex flex-col items-center">
@@ -31,7 +31,7 @@ const Classroom: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Add classroom</title>
+        <title>{t("classroom.title")}</title>
       </Head>
       <Header />
       <main className="p-6 min-h-screen flex flex-col items-center">
